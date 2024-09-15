@@ -11,4 +11,3 @@ public class Travel2Application {
 	}
 
 }
- 
