@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<!-- /* 변수 지정 */-->
+	<property name="LOG_DIR" value="/DATA/travel/logs" />
+
+	<!-- [Appender] Console -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+		<!-- <encoder>
+			<pattern>[%-5level][%d{yy-MM-dd(E) HH:mm:ss}] %logger{100}%n      %msg%n</pattern>
+		</encoder> -->
+	</appender>
+
+	<!-- [Appender] test File -->
+	<appender name="test" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_DIR}/test.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_DIR}/test.log</fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+	<!-- 
+		로깅 파일 등록하는법 어펜더와 로거를 등록해야한다. 2개 모두 등록해야한다!
+		1. 로깅을 할때는 2가지가 존제 어펜더와 로거
+			어펜더는 로깅을 어디에 할지를 지정하는것이고
+			로거는 어떤 로깅을 할지를 지정하는것이다.
+	-->
+
+	<!-- [ Appender ] ${어펜더 이름} 일자별로 로그파일 적용하기 -->
+    <!-- <appender name="${어펜더 이름}" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_DIR}/${어펜더 이름}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_DIR}/${어펜더 이름}_%d{yyyyMMdd}.log</fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender> -->
+
+	<!-- 로거 등록 -->
+	<!-- <logger name="${로거 이름}" level="DEBUG" additivity="false">
+        <appender-ref ref="schedule"/> // 위에서 지정한 어펜더도 출력
+        <appender-ref ref="STDOUT"/> // 콘솔에 출력
+    </logger> -->
+
+
+	<!-- default package logger -->
+	<logger name="com.demo.travel" level="DEBUG"/>
+
+	<!-- 언제 출력할 것인지를 지정한다. -->
+	<root level="info">
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>
