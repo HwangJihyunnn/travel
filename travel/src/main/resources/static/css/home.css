@@ -1,0 +1,26 @@
+@charset "utf-8";
+@import url('fonts.css');
+
+@import url('https://webfontworld.github.io/gmarket/GmarketSans.css');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+
+body {color: #333; font-family: 'Noto Sans KR', sans-serif; box-sizing: border-box; overflow-y: hidden;background: url(/travel/src/main/resources/static/img/main-background.png)no-repeat bottom/cover; }
+
+/* 메인 */
+main {width: 1200px; height: 700px;  margin: 150px auto; display: flex; flex-direction: row;}
+
+/* 좌측 콘텐츠 */
+.main-logo {font-family: 'Kaushan Script'; color: #fff; font-size: 100px;}
+main > .left {width: 50%; height: 100%; font-size: 36px; color: #fff; font-weight: 100;}
+main > .left > .search-btn > input {background: rgba(0, 0, 0, 0.3); border: 2px solid #fff; outline: none;font-size: 24px; color: #fff; border-radius: 20px;  padding: 20px 30px; margin-top: 150px;}
+.search-btn > #search {font-size: 56px; font-weight: 300; vertical-align: middle;}
+
+/* 우측 콘텐츠 */
+main > .right {width: 50%; height: 100%; background: #f8f8f8; overflow-y: scroll; overflow-x: hidden; scrollbar-width: none;  padding: 10px 20px;}
+
+/* 우측 - 상단 헤더 */
+header {display: flex; justify-content: space-between;}
+.header-left > select {border: none; border-radius: 50px; padding: 10px 30px; background: #446c9b; color: #fff;}
+.header-left > select > option {font-size: 20px;}
+.header-right > #h-icon {font-size: 36px;}
+
