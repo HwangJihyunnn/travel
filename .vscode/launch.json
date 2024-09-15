@@ -1,0 +1,27 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Travel2Application",
+            "request": "launch",
+            "mainClass": "com.demo.travel2.Travel2Application"
+        },
+        {
+            "type": "java",
+            "name": "Travel2Application",
+            "request": "launch",
+            "mainClass": "com.demo.travel.Travel2Application"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-TravelApplication<travel>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.travel.travel.TravelApplication",
+            "projectName": "travel",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=61626 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=travel"
+        }
+    ]
+}
