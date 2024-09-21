@@ -14,6 +14,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,8 +24,8 @@ import lombok.NoArgsConstructor;
 /*
  * 입금 출금 내역을 저장할 테이블
  */
+@Table(name = "account_transaction")
 @Entity
-@Table
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
@@ -36,6 +37,7 @@ public class AccountTransaction {
     @Column(name = "account_transaction_id")
     private Long id;
 
+    @ManyToOne
     @JoinColumn(name = "account_id")
     private Account account; // 계좌 정보
 

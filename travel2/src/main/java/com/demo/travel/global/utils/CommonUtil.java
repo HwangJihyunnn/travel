@@ -1,5 +1,9 @@
 package com.demo.travel.global.utils;
 
+import java.util.Optional;
+
+import com.demo.travel.domain.user.User;
+
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
@@ -11,23 +15,33 @@ public class CommonUtil {
 
     private static final String SESSION_USERINFO = "userInfo";
 
+    public static Optional<Long> getUserId(HttpServletRequest request) {
+        return getUserInfo(request).map(User::getId);
+    }
+
+    public static Optional<Long> getUserId(HttpSession session) {
+        return getUserInfo(session).map(User::getId);
+    }
+
     /**
      * request 객체에서 userInfo를 가져오는 메소드
      * @param request
      * @return
      */
-    public static Object getUserInfo(HttpServletRequest request) {
+    public static Optional<User> getUserInfo(HttpServletRequest request) {
         HttpSession session = request.getSession();
         return getUserInfo(session);
     }
 
     /**
-     * session 객체에서 userInfo를 가져오는 메소드
-     * @param session
-     * @return
+     * 세션 객체에서 userInfo를 가져오는 메소드
+     * @param session HttpSession 객체
+     * @return Optional<User> 사용자 정보
      */
-    public static Object getUserInfo(HttpSession session) {
-        return session.getAttribute(SESSION_USERINFO);
+    public static Optional<User> getUserInfo(HttpSession session) {
+        return Optional.ofNullable(session.getAttribute(SESSION_USERINFO))
+                .filter(User.class::isInstance)
+                .map(User.class::cast);
     }
 
     /**
