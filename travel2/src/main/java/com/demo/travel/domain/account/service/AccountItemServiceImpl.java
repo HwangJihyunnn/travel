@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.demo.travel.domain.account.entity.AccountItem;
-import com.demo.travel.domain.account.repo.AccountItemRepo;
+import com.demo.travel.domain.account.repo.AccountItemRepository;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,11 +15,11 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 public class AccountItemServiceImpl implements AccountItemService {
 
-    private final AccountItemRepo accountItemRepo;
+    private final AccountItemRepository accountItemRepository;
 
     @Override
     public List<Object> selectAccountItemList() {
-        List<AccountItem> accountItemList = accountItemRepo.findAll();
+        List<AccountItem> accountItemList = accountItemRepository.findAll();
 
         List<Object> accountItemResponseList = null;
 
@@ -29,7 +29,7 @@ public class AccountItemServiceImpl implements AccountItemService {
     @Override
     public Object selectAccountItem(Long accountItemId) {
         try {
-            AccountItem accountItem = accountItemRepo.findById(accountItemId)
+            AccountItem accountItem = accountItemRepository.findById(accountItemId)
                     .orElseThrow(() -> new IllegalArgumentException("해당 카드 아이템이 존재하지 않습니다. id=" + accountItemId));
             
             Object accountItemResponse = new Object();

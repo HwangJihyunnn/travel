@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.demo.travel.domain.account.entity.AccountItem;
 
 @Repository
-public interface AccountItemRepo extends JpaRepository<AccountItem, Long> {
+public interface AccountItemRepository extends JpaRepository<AccountItem, Long> {
 
 }
