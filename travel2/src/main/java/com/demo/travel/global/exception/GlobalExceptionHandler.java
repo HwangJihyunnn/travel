@@ -12,11 +12,13 @@ import lombok.extern.slf4j.Slf4j;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(value = Exception.class)
-    public ResponseEntity<Object> handleException(Exception e) {
+    public ResponseEntity<String> handleException(Exception e) {
         log.error("========== Unexcepted Exception");
         log.error("========== ERROR LOG : {}", e);
         log.error("========== ERROR LINE : {}", e.getStackTrace()[0].getLineNumber());
-        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        return ResponseEntity
+                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body("알 수 없는 오류가 발생했습니다.");
     }
 
 }
