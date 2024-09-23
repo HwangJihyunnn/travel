@@ -1,4 +1,4 @@
-package com.demo.travel.domain.account.dto.response;
+package com.demo.travel.domain.card.dto.response;
 
 import java.util.Map;
 
