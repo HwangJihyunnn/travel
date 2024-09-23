@@ -1,4 +1,6 @@
-package com.demo.travel.domain.account.entity;
+package com.demo.travel.domain.card.entity;
+
+import java.util.List;
 
 import com.demo.travel.domain.account.enums.CardType;
 
@@ -8,6 +10,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -40,7 +43,7 @@ public class CardItem {
     @Column(name = "is_used")
     private boolean isUsed;
 
-    // 카드 해택 //TODO
-    private String cardHeTec; // 추후 카드해택이라는 추가 테이블로 리스트화 하는게 좋을듯
+    @OneToMany(mappedBy = "cardItem")
+    List<CardBenefit> cardBenefits; // 카드 혜택 목록
 
 }
