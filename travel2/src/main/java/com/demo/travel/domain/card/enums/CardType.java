@@ -1,4 +1,4 @@
-package com.demo.travel.domain.account.enums;
+package com.demo.travel.domain.card.enums;
 
 public enum CardType {
     CREDIT_CARD("신용카드"),   // 신용카드
