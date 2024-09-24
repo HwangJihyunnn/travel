@@ -5,11 +5,13 @@ import java.time.LocalDateTime;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.demo.travel.domain.account.entity.Account;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -23,20 +25,20 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /*
- * 계좌와 연결되는 카드 정보 테이블
+ * [Card] 카드 관련 엔티티
  */
 @Table(
     name = "card",
     indexes = {
             @Index(name = "card_seq_idx", columnList = "card_seq"),
             @Index(name = "card_number_idx", columnList = "card_number"),
-            @Index(name = "user_id_idx", columnList = "user_id"),
     })
 @Entity
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@EntityListeners(AuditingEntityListener.class)
 public class Card {
 
     @Id

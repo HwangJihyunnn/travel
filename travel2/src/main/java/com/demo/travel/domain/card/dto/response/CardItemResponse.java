@@ -2,7 +2,7 @@ package com.demo.travel.domain.card.dto.response;
 
 import java.util.Map;
 
-import com.demo.travel.domain.account.enums.CardType;
+import com.demo.travel.domain.card.enums.CardType;
 
 import lombok.Data;
 

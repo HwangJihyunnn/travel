@@ -1,7 +1,11 @@
 package com.demo.travel.domain.card.entity;
 
+import com.demo.travel.domain.card.enums.CardBenefitType;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -14,6 +18,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+/*
+ * [CardBenefit] 카드 혜택 관련 엔티티
+ */
 @Table(
     name = "card_benefit",
     indexes = {
@@ -35,7 +42,8 @@ public class CardBenefit {
     private CardItem cardItem;
 
     @Column(name = "benefit_type")
-    private String benefitType;             // 할인, 케시백, 포인트 등
+    @Enumerated(EnumType.STRING)
+    private CardBenefitType benefitType;             // 할인, 케시백, 포인트 등
 
     @Column(name = "benefit_name")
     private String benefitName;             // 혜택 이름

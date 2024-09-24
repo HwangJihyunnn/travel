@@ -22,6 +22,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+/*
+ * [CardUserMapping] 카드 사용자 매핑 관련 엔티티
+ */
 @Table(
     name = "card_user_mapping",
     indexes = {
