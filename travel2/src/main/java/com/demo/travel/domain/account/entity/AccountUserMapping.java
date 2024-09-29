@@ -19,10 +19,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Table(
-    name = "mapping_account_user",
+    name = "account_user_mapping",
     indexes = {
-            @Index(name = "idx_mapping_account_user_user_id", columnList = "user_id"),
-            @Index(name = "idx_mapping_account_user_account_id", columnList = "account_id")})
+            @Index(name = "idx_account_user_mapping_user_id", columnList = "user_id"),
+            @Index(name = "idx_account_user_mapping_account_id", columnList = "account_id")})
 @Entity
 @Getter
 @AllArgsConstructor

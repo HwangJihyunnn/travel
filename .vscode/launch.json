@@ -4,13 +4,13 @@
             "type": "java",
             "name": "Travel2Application",
             "request": "launch",
-            "mainClass": "com.demo.travel2.Travel2Application"
+            "mainClass": "com.demo.travel.Travel2Application"
         },
         {
             "type": "java",
-            "name": "Travel2Application",
+            "name": "TravelApplication",
             "request": "launch",
-            "mainClass": "com.demo.travel.Travel2Application"
+            "mainClass": "com.demo.travel.TravelApplication"
         },
         {
             "type": "java",
